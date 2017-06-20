@@ -8,7 +8,7 @@ This program reads the CSV file, does some QC between the 'I' and 'R' record lik
 
 After this program completes, the target 'R' images are ready to index in the preindex directory.
 
-## 1978
+# 1978 Log File
 2017-06-20 16:16:09,453 WARN CSVParser$ Volume/Page Mismatch!  Document Number: 1686496 I record has VolPage: 6054/1132 and R record has VolPage: 6064/1132
 2017-06-20 16:16:09,453 WARN CSVParser$ Volume/Page Mismatch!  Document Number: 1688269 I record has VolPage: 6056/1967 and R record has VolPage: 6056/1979
 2017-06-20 16:16:09,453 WARN CSVParser$ FileMd Mismatch!  Document Number: 1689330 I record has FileMd: 124 and R record has FileMd: 125
@@ -4008,3 +4008,5 @@ After this program completes, the target 'R' images are ready to index in the pr
 2017-06-20 16:16:47,635 INFO CopyFiles$ Processing DocNum: 1743281, FileYear: 1978, FileMd: 414, Files: List(Z:\I\1978\04\14\1743281.001, Z:\I\1978\04\14\1743281.002)
 2017-06-20 16:16:47,635 INFO CopyFiles$ Copying: Z:\I\1978\04\14\1743281.001 to: ./preindex/1978/1743281.001
 2017-06-20 16:16:47,667 INFO CopyFiles$ Copying: Z:\I\1978\04\14\1743281.002 to: ./preindex/1978/1743281.002
+
+
