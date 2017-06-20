@@ -1,0 +1,32 @@
+/* Identify "I" records with an image by year.  Output to IMGREC/TR1978I, etc. */
+SQL statement, press Enter.                     
+SELECT LTRIM(RTRIM(DMDOC#)) AS DocNumber,       
+LTRIM(RTRIM(SUBSTR(DMFLMCD,1,6))) || '/' ||     
+LTRIM(RTRIM(SUBSTR(DMFLMCD,8,8))) AS VolumePage,
+LTRIM(RTRIM(DMDOCTYP)) AS DocType,              
+DMFILEYY AS FileYY,                             
+DMFILEMD AS FileMD                              
+FROM T2ADITR/TMDFMSTL                           
+WHERE DMFILEYY = 1978                           
+AND DMDOCSRC = 'I'                              
+AND DMIMGIDX != 0                               
+ORDER BY DMFILEMD                               
+
+/* Identify "R" records without an image by year.  Output to IMGREC/TR1978R, etc. */
+SELECT LTRIM(RTRIM(DMDOC#)) AS DocNumber,       
+LTRIM(RTRIM(SUBSTR(DMFLMCD,1,6))) || '/' ||     
+LTRIM(RTRIM(SUBSTR(DMFLMCD,8,8))) AS VolumePage,
+LTRIM(RTRIM(DMDOCTYP)) AS DocType,              
+DMFILEYY AS FileYY,                             
+DMFILEMD AS FileMD                              
+FROM T2ADITR/TMDFMSTL                           
+WHERE DMFILEYY = 1978                           
+AND DMDOCSRC = 'R'                              
+AND DMIMGIDX = 0                                
+ORDER BY DMFILEMD                               
+
+/* Use SQL INNER JOIN to return records with matching document number in both tables.  Output to IMGREC/TR1978J */
+
+SELECT *
+FROM IMGREC/TR1978I AS A
+INNER JOIN IMGREC/TR1978R AS B ON A.DOCNUMBER = B.DOCNUMBER 
